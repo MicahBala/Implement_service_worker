@@ -44,3 +44,9 @@ self.addEventListener('activate', e => {
     })
   );
 });
+
+// Call the fetch even to make contents available offline from the cahed storage
+self.addEventListener('fetch', e => {
+  console.log('Service Worker: Fetching content...');
+  e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
+});
