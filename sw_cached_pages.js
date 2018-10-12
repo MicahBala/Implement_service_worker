@@ -1,28 +1,9 @@
-const cacheName = 'v1.0';
-
-const cacheAsset = [
-  'index.html',
-  'styles/main.css',
-  'styles/responsive.css',
-  'js/script.js'
-];
+const cacheName = 'v2.0';
 
 // Call Install event
 // To do that we need to attach an even to the actual worker using self
 self.addEventListener('install', e => {
   console.log('Service Worker Installed!');
-
-  // Handle cahing of assets
-  //   Wait untill our promise is finished
-  e.waitUntil(
-    caches
-      .open(cacheName)
-      .then(cache => {
-        console.log('Service Worker: Caching Files');
-        cache.addAll(cacheAsset);
-      })
-      .then(() => self.skipWaiting())
-  );
 });
 
 // Call Activate Event
@@ -48,5 +29,19 @@ self.addEventListener('activate', e => {
 // Call the fetch even to make contents available offline from the cahed storage
 self.addEventListener('fetch', e => {
   console.log('Service Worker: Fetching content...');
-  e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
+  e.respondWith(
+    fetch(e.request)
+      .then(res => {
+        //   Make clone of response from server
+        const resClone = res.clone();
+
+        // Open cache
+        caches.open(cacheName).then(cache => {
+          // Add response to cache
+          cache.put(e.request, resClone);
+        });
+        return res;
+      })
+      .catch(err => caches.match(e.request).then(res => res))
+  );
 });
