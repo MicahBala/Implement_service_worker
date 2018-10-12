@@ -1,0 +1,193 @@
+/* CSS Reset Rules */
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Hero Section */
+
+.hero {
+  min-height: 350px;
+  background: url("../images/coding.jpeg") top left no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+.hero_background {
+  width: 80%;
+  background-color: #000;
+  opacity: .7;
+  position: relative;
+  top: 5em;
+  margin: auto;
+  border-radius: 10px;
+  line-height: 1.5em;
+}
+
+.hero_text{
+  padding: 1em 1em 3em 1em;
+  color: #fff;
+}
+
+.hero_social a{
+  color: #fff;
+  float: right;
+  padding-right: 1em;
+  border-radius: 4px;
+}
+
+.hero_social a:hover{
+  color: #4dabf7;
+}
+
+/* Body */
+
+body {
+  font-family: Roboto;
+  font-size: 1em;
+  color: #2d3c49;
+}
+
+/* Main Section */
+
+main {
+  padding-bottom: 2em;
+  box-sizing: border-box;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  margin: .5em;
+  /* justify-content: space-between; */
+}
+
+.header_logo {
+  height: 55px;
+  margin: .5em 0 .5em .5em;
+}
+
+.header__title {
+  margin-left: .5em;
+  margin-top: .5em;
+  /* text-align: right; */
+  font-family: Lato, Roboto;
+}
+
+/* Harmburger Menu Icon */
+.menu {
+  margin-left: auto;
+  margin-right: .5em;
+  margin-top: .5em;
+  width: 50px;
+  height: 50px;
+}
+
+.menu:hover {
+  border: solid 1px #7d97ad;
+  border-radius: 5px;
+}
+
+.menu_icon {
+  width: 30px;
+  height: 5px;
+  background-color: #7d97ad;
+  border-radius: 5px;
+  position: relative;
+  top: .7em;
+  left: .6em;
+}
+
+.menu_icon:after,
+.menu_icon:before {
+  content: '';
+  width: 100%;
+  height: 5px;
+  background-color: #7d97ad;
+  border-radius: 5px;
+  position: absolute;
+}
+
+.menu_icon:after {
+  top: 10px;
+}
+
+.menu_icon:before {
+  top: 20px;
+}
+
+.nav {
+  display: none;
+}
+
+/* .ruler {
+  height: 2px;
+  background: #7d97ad;
+} */
+
+/* Portfolio */
+
+.portfolio {
+  margin: .5em;
+  text-align: center;
+}
+
+.featured {
+  color: #7d97ad;
+  font-size: 2em;
+  font-family: 'Montserrat', Roboto;
+  font-weight: 400;
+  margin-top: 1em;
+  padding-left: .2em;
+}
+
+.portfolio_description {
+  font-size: 2em;
+  font-family: Lato, Roboto;
+  text-transform: uppercase;
+  text-align: center;
+}
+.address {
+  text-align: center;
+}
+
+.sunflower,
+.responsive,
+.advertise {
+  margin-bottom: 1em;
+}
+
+/* footer */
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 1em;
+  border-top: solid 1px #7d97ad;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #02b3e4;
+}
